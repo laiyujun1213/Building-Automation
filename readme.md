@@ -20,7 +20,9 @@
 - Python 3.8+
 - Anaconda 或 Miniconda 环境
 - 有效的 DeepSeek API 密钥（需自行申请）
-- `all-MiniLM-L6-v2`预训练模型（需从官方渠道下载）
+- `all-MiniLM-L6-v2`预训练模型（需从官方渠道下载、或者魔塔社区下载）
+- https://modelscope.cn/models/sentence-transformers/all-MiniLM-L6-v2
+- https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2
 
 ### 模型下载与放置
 
@@ -59,12 +61,15 @@ deepseek_client = OpenAI(
 ### 修改任务内容（可选）
 如需分解自定义建筑任务，可修改Ming_Agent.py中的construction_task变量：
 #### 在Ming_Agent.py中
+
+```
 construction_task = "你的建筑施工任务描述"  # 例如："规划建筑施工场地的临时设施布置..."
+```
 
 
 ## 📋运行项目
 ### 通过主入口脚本app.py启动整个任务分解流程：
-python app.py
+python3 app.py
 首先执行Ming_Agent.py进行主任务分解，生成主代理任务分解.json
 接着执行subagent2.py进行细粒度分解，生成细粒度任务分解结果.json
 自动更新construction_environment_items.json（环境物品库）和construction_atomic_actions.json（原子动作库）
@@ -73,13 +78,13 @@ python app.py
 ### 分模块执行项目
 通过主入口脚本逻辑启动整个任务分解流程（确保已激活 Conda 环境）：
 #### 首先运行主代理进行任务分解
-python Ming_Agent.py
+python3 Ming_Agent.py
 
 #### 然后运行子代理进行细粒度分解
-python subagent2.py
+python3 subagent2.py
 
 #### 最后运行评估脚本（以增强版为例）
-python evaluate_decomposition2.py
+python3 evaluate_decomposition2.py
 
 
 
@@ -101,6 +106,7 @@ python evaluate_decomposition2.py
 ├── 分解评估结果.json                # 评估结果（运行后生成）
 └── all-MiniLM-L6-v2/              # 预训练模型目录（需自行下载）
 ```
+
 
 
 
