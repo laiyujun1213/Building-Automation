@@ -44,22 +44,19 @@ conda activate construction-env
 ### 安装依赖
 pip install -r requirements.txt
 
-## 项目结构
-├── Ming_Agent.py                  # 主代理模块，负责初始任务分解
-├── Subagent.py                    # 原子动作-物品描述生成模块
-├── subagent1.py                   # 基础版子代理，生成动作-物品关联
-├── subagent2.py                   # 增强版子代理，调用API生成细步骤
-├── app.py                         # 脚本运行工具函数
-├── evaluate_decomposition.py      # 基础版评估脚本
-├── evaluate_decomposition1.py     # 优化版评估脚本
-├── evaluate_decomposition2.py     # 增强版评估脚本（含文本预处理）
-├── requirements.txt               # 项目依赖列表
-├── construction_environment_items.json  # 环境物品库（自动更新）
-├── construction_atomic_actions.json     # 原子动作库（自动更新）
-├── 主代理任务分解.json              # 主代理分解结果（运行后生成）
-├── 细粒度任务分解结果.json          # 细粒度分解结果（运行后生成）
-├── 分解评估结果.json                # 评估结果（运行后生成）
-└── all-MiniLM-L6-v2/              # 预训练模型目录（需自行下载）
+## 配置 API 密钥
+在运行项目前，需替换代码中的 DeepSeek API 密钥：
+打开Ming_Agent.py文件，替换api_key参数值
+打开subagent2.py文件，替换api_key参数值
+# 示例（在Ming_Agent.py和subagent2.py中）
+deepseek_client = OpenAI(
+    api_key="你的DeepSeek API密钥",  # 替换为实际密钥
+    base_url="https://api.deepseek.com"
+)
+
+
+
+
 
 
 
