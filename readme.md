@@ -30,21 +30,29 @@
 2. 将下载的模型解压至项目根目录，确保路径为：`./all-MiniLM-L6-v2`（评估脚本将默认从该路径加载模型）
 
 ## 克隆仓库
+```
 git clone https://github.com/laiyujun1213/Building-Automation.git
 cd Building-Automation
+```
 
 ## Conda 虚拟环境配置与依赖安装
 
-### 创建并激活虚拟环境
+## 创建并激活虚拟环境
 
 ### 创建Conda虚拟环境
+```
 conda create -n construction python=3.8 -y
+```
 
 ### 激活虚拟环境
+```
 conda activate construction
+```
 
 ### 安装依赖
+```
 pip install -r requirements.txt
+```
 
 ## 配置 API 密钥
 在运行项目前，需替换代码中的 DeepSeek API 密钥：
@@ -78,13 +86,19 @@ python3 app.py
 ### 分模块执行项目
 通过主入口脚本逻辑启动整个任务分解流程（确保已激活 Conda 环境）：
 #### 首先运行主代理进行任务分解
+```
 python3 Ming_Agent.py
+```
 
 #### 然后运行子代理进行细粒度分解
+```
 python3 subagent2.py
+```
 
 #### 最后运行评估脚本（以增强版为例）
+```
 python3 evaluate_decomposition2.py
+```
 
 
 
@@ -106,6 +120,7 @@ python3 evaluate_decomposition2.py
 ├── 分解评估结果.json                # 评估结果（运行后生成）
 └── all-MiniLM-L6-v2/              # 预训练模型目录（需自行下载）
 ```
+
 
 
 
