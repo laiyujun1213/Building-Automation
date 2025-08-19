@@ -80,7 +80,9 @@ construction_task = "你的建筑施工任务描述"  # 例如："规划建筑�
 
 ## 📋运行项目
 ### 通过主入口脚本app.py启动整个任务分解流程：
+```
 python3 app.py
+```
 首先执行Ming_Agent.py进行主任务分解，生成主代理任务分解.json
 接着执行subagent2.py进行细粒度分解，生成细粒度任务分解结果.json
 自动更新construction_environment_items.json（环境物品库）和construction_atomic_actions.json（原子动作库）
